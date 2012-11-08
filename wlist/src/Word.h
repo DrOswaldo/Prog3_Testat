@@ -12,6 +12,9 @@ public:
 	std::string getWord() const
 		{return m_Word;};
 	void read(std::istream& in);
+	void print(std::ostream& out) const {
+		out << getWord();
+	}
 private:
 	std::string m_Word;
 };
@@ -22,7 +25,7 @@ inline std::istream& operator>>(std::istream& in, Word & w){
 }
 
 inline std::ostream& operator<<(std::ostream& out, Word const& w){
-	out << w.getWord();
+	w.print(out);
 	return out;
 }
 
