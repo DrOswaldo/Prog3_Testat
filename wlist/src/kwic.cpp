@@ -3,7 +3,7 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
- #include <stdexcept> // out_of_range exception
+#include <stdexcept> // out_of_range exception
 
 int main() {
 	std::vector< std::vector<std::string> > lines{};
@@ -22,7 +22,10 @@ int main() {
 		{
 			Word w{};
 			iss >> w;
-			words.push_back(w);
+			// ignore empty lines
+			if(!w.getWord().empty()) {
+				words.push_back(w);
+			}
 		}
 		if ( words.size() > maxCount)
 		{ maxCount = words.size(); }
