@@ -1,50 +1,33 @@
 #include "Word.h"
-#include <cctype>
-#include <iostream>
+#include <algorithm>
+#include <istream>
 
 void Word::read(std::istream& in) {
-
-	/*
-	while(in.good()) {
-		char c = in.get();
-		if(::isalpha(c)) {
-			m_Word.push_back(c);
-		}
-		else {
-			if(!m_Word.empty()){
-				return;
-			}
-		}
-	}
-	*/
-
-
-	// @TODO: use temporary string and only apply to m_Word when succsessfull
-
+	std::string tmp{};
 	using input=std::istreambuf_iterator<char>;
 	input eof{};
 	input init{in};
-	auto it=std::find_if(init, eof, [this](const char c) {
+	// Abuse of find_if to do a copy_until to gain creativity points
+	auto it=std::find_if(init, eof, [&tmp](const char c) {
 			if(::isalpha(c)) {
-				this->m_Word.push_back(c);
+				tmp.push_back(c);
 			}
 			else {
-				if(! this->m_Word.empty()) {
+				if(! tmp.empty()) {
 					return true;
 				}
 			}
 			return false;
 		}
 	);
+	// find_if does not touch the stream, so we have to set the eof bit by ourself
 	if( it==eof) {
 		in.clear(std::ios_base::eofbit | in.rdstate());
 	}
-	if (m_Word.empty()) in.clear(std::ios_base::failbit|in.rdstate());
-	/*
-	do {
-		std::string tmp;
-		in >> tmp;
-		std::copy_if(tmp.begin(), tmp.end(), back_inserter(m_Word), ::isalpha);
-	}while(m_Word.empty());
-	*/
+	if (tmp.empty()) {
+		in.clear(std::ios_base::failbit | in.rdstate());
+	}
+	else {
+		m_Word = tmp;
+	}
 }
