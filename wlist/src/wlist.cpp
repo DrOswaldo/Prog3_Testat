@@ -1,4 +1,5 @@
 #include "Word.h"
+#include <iostream>
 
 int main() {
 	while(std::cin.good()) {
