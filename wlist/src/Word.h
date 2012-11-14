@@ -13,6 +13,7 @@ public:
 		{out << getWord();}
 private:
 	std::string m_Word;
+
 };
 
 inline std::istream& operator>>(std::istream& in, Word & w){
