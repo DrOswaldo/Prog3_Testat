@@ -2,7 +2,7 @@
 #include "ide_listener.h"
 #include "cute_runner.h"
 
-#include "line_iterator.h"
+#include "getline_iterator.h"
 
 void distanceTest() {
 	std::stringstream str{"test\ntest2\n"};

@@ -1,4 +1,4 @@
-#include "line_iterator.h"
+#include "getline_iterator.h"
 
 line_iterator::line_iterator(std::istream &input)
 	:m_istream(&input)
