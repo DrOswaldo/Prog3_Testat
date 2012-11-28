@@ -1,10 +1,27 @@
 #include "line_iterator.h"
 
-//std::istringstream line_iterator::dummy{};
-
-/*
-bool line_iterator::operator==( const line_iterator& b) const
+line_iterator::line_iterator(std::istream &input)
+	:m_istream(&input)
 {
-	return in == b.in;
+	getline(*m_istream, m_current_value);
 }
-*/
+
+line_iterator::value_type line_iterator::dereference() const
+{
+	return m_current_value;
+}
+
+bool line_iterator::equal(const line_iterator & rhs) const
+{
+	return m_istream == rhs.m_istream;
+}
+
+void line_iterator::increment()
+{
+	if(0 != m_istream){
+		getline(*m_istream, m_current_value);
+		if(! m_istream->good()){
+			m_istream = 0;
+		}
+	}
+}

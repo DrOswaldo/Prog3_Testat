@@ -13,7 +13,6 @@ using std::negate;
 using std::bind;
 using std::modulus;
 
-
 void testPlus() {
 	double x = 1;
 	double y = 2;
