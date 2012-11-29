@@ -2,8 +2,9 @@
 #define DYNARRAY_H_
 
 template<class T>
-class
+class dynArray
 {
+
 public:
 	operator
 private:
