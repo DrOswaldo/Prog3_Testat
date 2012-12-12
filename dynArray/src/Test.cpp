@@ -22,10 +22,10 @@ void constructorTest() {
 	ASSERT_EQUAL(dIntArray[2], 3);
 	ASSERT_EQUAL(dIntArray[3], 4);
 
-	/*
 	dynArray<double> dDoubleArray(10,3.14);
-	dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
-	 */
+
+	//dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
+
 }
 
 void negativeIndexTest() {
