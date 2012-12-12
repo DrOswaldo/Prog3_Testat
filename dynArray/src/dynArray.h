@@ -4,7 +4,6 @@
 template<class T>
 class dynArray
 {
-	template< typename T > class array {
 	private:
 		int size;
 		T *myarray;
@@ -22,15 +21,13 @@ class dynArray
 
 	// for loop to display all elements of an array
 	void getArray () {
-	     for ( int j = 0; j < size; j++ ) {
+		 for ( int j = 0; j < size; j++ ) {
 	// typeid will retriev a type for each value
-	        cout << setw( 7 ) << j << setw( 13 ) << myarray[ j ]
+			cout << setw( 7 ) << j << setw( 13 ) << myarray[ j ]
 	<< " type: " << typeid(myarray[ j ]).name() << endl;
 		}
 		cout << "-----------------------------" << endl;
 		}
-	};
-}
-
+};
 
 #endif // DYNARRAY_H_
