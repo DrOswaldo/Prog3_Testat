@@ -11,6 +11,10 @@ public:
 		:myvector{}
 	{}
 
+	dynArray(size_type size, T value)
+		:myvector(size, value)
+	{}
+
 	dynArray(std::initializer_list<T> ilist)
 		:myvector{ilist}
 	{}
