@@ -7,19 +7,19 @@
 template<class T>
 dynArray<T> makedynArray(std::initializer_list<T> ilist)
 {
-	//return dynArray<T>{ilist};
+	return dynArray<T>{ilist};
 }
 
 void constructorTest() {
-	/*
+
 	auto dCharArray = makedynArray<char>({});
 
-
 	dynArray<int> dIntArray{1,2,3,4};
+
+	/*
 	dynArray<double> dDoubleArray(10,3.14);
 	dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
-
-	*/
+	 */
 }
 
 void negativeIndexTest() {

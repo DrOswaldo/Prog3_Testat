@@ -4,25 +4,34 @@
 template<typename T>
 class dynArray
 {
-private:
+	using size_type=typename std::vector<T>::size_type;
 	std::vector<T> myvector;
 public:
-	// constructor with user pre-defined size
 	dynArray()
 		:myvector{}
-	{
-	}
+	{}
+
+	dynArray(std::initializer_list<T> ilist)
+		:myvector{ilist}
+	{}
 
 	T operator[](int index)
 	{
 		return myvector[index];
 	}
+
+	size_type size() const
+		{ return myvector.size(); }
+	bool empty() const
+		{ return myvector.empty(); }
+
 	// calss array member function to set element of myarray
 	// with type T values
 	void setArray ( int elem, T val)
 	{
 		myvector[elem] = val;
 	}
+
 
 	// for loop to display all elements of an array
 	void getArray () {
