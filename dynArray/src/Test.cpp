@@ -7,10 +7,11 @@
 template<class T>
 dynArray<T> makedynArray(std::initializer_list<T> ilist)
 {
-	return dynArray<T>{ilist};
+	//return dynArray<T>{ilist};
 }
 
 void constructorTest() {
+	/*
 	auto dCharArray = makedynArray<char>({});
 
 
@@ -18,12 +19,17 @@ void constructorTest() {
 	dynArray<double> dDoubleArray(10,3.14);
 	dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
 
-	ASSERTM("start writing tests", false);	
+	*/
+}
+
+void negativeIndexTest() {
+	//dynArray<int> intArray{};
 }
 
 void runSuite(){
 	cute::suite s;
 	s.push_back(CUTE(constructorTest));
+	s.push_back(CUTE(negativeIndexTest));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "The Suite");
 }
