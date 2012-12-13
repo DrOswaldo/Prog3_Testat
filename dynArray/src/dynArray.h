@@ -41,7 +41,8 @@ public:
 		}
 	}
 
-	void clear(){
+	void clear() noexcept
+	{
 		myvector.clear();
 	}
 
@@ -49,11 +50,42 @@ public:
 	{
 		return myvector.begin();
 	}
+	iterator_type rbegin()
+	{
+			return myvector.rbegin();
+	}
+	iterator_type crbegin()
+	{
+			return myvector.crbegin();
+	}
+	iterator_type cbegin()
+	{
+			return myvector.crbegin();
+	}
 	iterator_type end()
 	{
 		return myvector.end();
 	}
-
+	iterator_type rend()
+	{
+		return myvector.rend();
+	}
+	iterator_type cend()
+	{
+		return myvector.cend();
+	}
+	iterator_type crend()
+	{
+		return myvector.crend();
+	}
+	iterator_type erase(iterator_type position)
+	{
+		return myvector.erase(position);
+	}
+	iterator_type erase(iterator_type first, iterator_type last)
+	{
+		return myvector.erase(first, last);
+	}
 	T front()
 	{
 		return myvector.front();
@@ -61,6 +93,18 @@ public:
 	T back()
 	{
 		return myvector.back();
+	}
+	size_type capacity() const noexcept
+	{
+		return myvector.capacity();
+	}
+	void resize (size_type n)
+	{
+		myvector.resize(n);
+	}
+	void resize (size_type n, T val)
+	{
+		myvector.resize(n,val);
 	}
 	void push_back(T item){
 		myvector.push_back(item);
@@ -70,7 +114,7 @@ public:
 	}
 	size_type size() const
 		{ return myvector.size(); }
-	bool empty() const
+	bool empty() const noexcept
 		{ return myvector.empty(); }
 
 	void setElement ( int pos, T val)
