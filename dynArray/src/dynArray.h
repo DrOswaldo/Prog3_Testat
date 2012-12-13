@@ -17,7 +17,12 @@ public:
 
 	T operator[](int index)
 	{
-		return myvector[index];
+		if (index < 0){
+			return myvector[myvector.size - index];
+		}
+		else {
+			return myvector[index];
+		}
 	}
 
 	size_type size() const
@@ -25,23 +30,19 @@ public:
 	bool empty() const
 		{ return myvector.empty(); }
 
-	// calss array member function to set element of myarray
-	// with type T values
-	void setArray ( int elem, T val)
+	void setElement ( int pos, T val)
 	{
-		myvector[elem] = val;
-	}
-
-
-	// for loop to display all elements of an array
-	void getArray () {
-		 for ( int j = 0; j < myvector.size; j++ ) {
-	// typeid will retriev a type for each value
-	        std::cout //<< std::setw( 7 ) << j << std::setw( 13 ) << myarray[ j ]
-	<< " type: " << typeid(myvector[ j ]).name() << std::endl;
+		if (pos < 0)
+		{
+			myvector[myvector.size -pos] = val;
 		}
-		std::cout << "-----------------------------" << std::endl;
+		else
+		{
+			myvector[pos] = val;
+		}
 	}
+
+
 };
 
 #endif // DYNARRAY_H_
