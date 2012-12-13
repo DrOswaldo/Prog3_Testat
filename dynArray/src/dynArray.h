@@ -6,6 +6,9 @@ class dynArray
 {
 	using size_type=typename std::vector<T>::size_type;
 	using iterator_type=typename std::vector<T>::iterator;
+	using reverse_iterator=typename std::vector<T>::reverse_iterator;
+	using const_iterator=typename std::vector<T>::const_iterator;
+	using const_reverse_iterator=typename std::vector<T>::const_reverse_iterator;
 	std::vector<T> myvector;
 public:
 	dynArray()
@@ -50,15 +53,15 @@ public:
 	{
 		return myvector.begin();
 	}
-	iterator_type rbegin()
+	reverse_iterator rbegin()
 	{
 			return myvector.rbegin();
 	}
-	iterator_type crbegin()
+	const_reverse_iterator crbegin()
 	{
 			return myvector.crbegin();
 	}
-	iterator_type cbegin()
+	const_iterator cbegin()
 	{
 			return myvector.crbegin();
 	}
@@ -66,15 +69,15 @@ public:
 	{
 		return myvector.end();
 	}
-	iterator_type rend()
+	reverse_iterator rend()
 	{
 		return myvector.rend();
 	}
-	iterator_type cend()
+	const_iterator cend()
 	{
 		return myvector.cend();
 	}
-	iterator_type crend()
+	const_reverse_iterator crend()
 	{
 		return myvector.crend();
 	}
