@@ -22,12 +22,20 @@ public:
 	T operator[](int index)
 	{
 		if (index < 0){
-			return myvector[myvector.size() + index];
+			return myvector.at(myvector.size() + index);
 
 		}
 		else {
-			return myvector[index];
+			return myvector.at(index);
 		}
+	}
+	T front()
+	{
+		return myvector.front();
+	}
+	T back()
+	{
+		return myvector.back();
 	}
 
 	size_type size() const
@@ -39,11 +47,11 @@ public:
 	{
 		if (pos < 0)
 		{
-			myvector[myvector.size() +pos] = val;
+			myvector.at(myvector.size() +pos) = val;
 		}
 		else
 		{
-			myvector[pos] = val;
+			myvector.at(pos) = val;
 		}
 	}
 
