@@ -29,6 +29,24 @@ public:
 			return myvector.at(index);
 		}
 	}
+	T at(int index)
+	{
+		if (index < 0){
+			return myvector.at(myvector.size() + index);
+
+		}
+		else {
+			return myvector.at(index);
+		}
+	}
+	std::iterator begin()
+	{
+		return myvector.begin();
+	}
+	std::iterator end()
+	{
+		return myvector.end();
+	}
 	T front()
 	{
 		return myvector.front();
