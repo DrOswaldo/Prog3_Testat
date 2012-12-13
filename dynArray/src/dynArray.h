@@ -5,6 +5,7 @@ template<typename T>
 class dynArray
 {
 	using size_type=typename std::vector<T>::size_type;
+	using iterator_type=typename std::vector<T>::iterator;
 	std::vector<T> myvector;
 public:
 	dynArray()
@@ -39,14 +40,16 @@ public:
 			return myvector.at(index);
 		}
 	}
-	std::iterator begin()
+
+	iterator_type begin()
 	{
 		return myvector.begin();
 	}
-	std::iterator end()
+	iterator_type end()
 	{
 		return myvector.end();
 	}
+
 	T front()
 	{
 		return myvector.front();
