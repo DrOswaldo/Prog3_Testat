@@ -29,8 +29,10 @@ void constructorTest() {
 	ASSERT_EQUAL(dDoubleArray.size(), 10);
 
 
-	dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
+	std::stringstream str{"test\ntest2\n"};
 
+	dynArray<std::string> dStringArray(std::istream_iterator<std::string>{str},std::istream_iterator<std::string>{});
+	ASSERT_EQUAL(2, dStringArray.size());
 }
 
 void negativeIndexTest() {
