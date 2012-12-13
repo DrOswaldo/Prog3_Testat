@@ -60,15 +60,22 @@ void iteratorTest() {
 	}
 }
 
-void clearTest() {
+void clearEmptyTest() {
 	auto cArr = makedynArray<char>({'a', 'b'});
 	ASSERT_EQUAL(2, cArr.size());
+	ASSERT_EQUAL(false, cArr.empty());
 	cArr.clear();
 	ASSERT_EQUAL(0, cArr.size());
+	ASSERT_EQUAL(true, cArr.empty());
+
 }
 
 void pushPopTest() {
 	auto arr = makedynArray<float>({});
+	arr.push_back(1.0f);
+	ASSERT_EQUAL(1, arr.size());
+	arr.pop_back();
+	ASSERT_EQUAL(0, arr.size());
 }
 
 void runSuite(){
@@ -77,7 +84,8 @@ void runSuite(){
 	s.push_back(CUTE(negativeIndexTest));
 	s.push_back(CUTE(invalidIndexTest));
 	s.push_back(CUTE(iteratorTest));
-	s.push_back(CUTE(clearTest));
+	s.push_back(CUTE(clearEmptyTest));
+	s.push_back(CUTE(pushPopTest));
 	cute::ide_listener lis;
 	cute::makeRunner(lis)(s, "The Suite");
 }
