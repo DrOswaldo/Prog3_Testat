@@ -14,7 +14,13 @@ void constructorTest() {
 
 	auto dCharArray = makedynArray<char>({});
 
+	ASSERT_EQUAL(dCharArray.size(), 0);
+
 	dynArray<int> dIntArray{1,2,3,4};
+	ASSERT_EQUAL(dIntArray[0], 1);
+	ASSERT_EQUAL(dIntArray[1], 2);
+	ASSERT_EQUAL(dIntArray[2], 3);
+	ASSERT_EQUAL(dIntArray[3], 4);
 
 	/*
 	dynArray<double> dDoubleArray(10,3.14);
@@ -23,7 +29,12 @@ void constructorTest() {
 }
 
 void negativeIndexTest() {
-	//dynArray<int> intArray{};
+	dynArray<int> intArray{1,2,3,4};
+
+	ASSERT_EQUAL(4, intArray[-1]);
+	ASSERT_EQUAL(3, intArray[-2]);
+	ASSERT_EQUAL(2, intArray[-3]);
+	ASSERT_EQUAL(1, intArray[-4]);
 }
 
 void runSuite(){
