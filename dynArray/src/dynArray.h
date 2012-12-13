@@ -23,6 +23,11 @@ public:
 		:myvector{ilist}
 	{}
 
+	template<typename InputIt>
+	dynArray(InputIt first, InputIt last)
+		:myvector(first, last)
+	{}
+
 	T operator[](int index)
 	{
 		if (index < 0){
