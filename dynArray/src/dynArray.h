@@ -18,7 +18,8 @@ public:
 	T operator[](int index)
 	{
 		if (index < 0){
-			return myvector[myvector.size - index];
+			return myvector[myvector.size() + index];
+
 		}
 		else {
 			return myvector[index];
@@ -34,7 +35,7 @@ public:
 	{
 		if (pos < 0)
 		{
-			myvector[myvector.size -pos] = val;
+			myvector[myvector.size() +pos] = val;
 		}
 		else
 		{
