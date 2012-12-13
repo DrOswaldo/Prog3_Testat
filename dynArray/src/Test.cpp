@@ -29,7 +29,7 @@ void constructorTest() {
 	ASSERT_EQUAL(dDoubleArray.size(), 10);
 
 
-	//dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
+	dynArray<std::string> dStringArray(std::istream_iterator<std::string>{std::cin},std::istream_iterator<std::string>{});
 
 }
 
