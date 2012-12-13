@@ -30,13 +30,7 @@ public:
 
 	T operator[](int index)
 	{
-		if (index < 0){
-			return myvector.at(myvector.size() + index);
-
-		}
-		else {
-			return myvector.at(index);
-		}
+		return this->at(index);
 	}
 	T at(int index)
 	{
