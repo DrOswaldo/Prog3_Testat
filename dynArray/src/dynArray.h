@@ -4,24 +4,41 @@
 template<typename T>
 class dynArray
 {
-private:
-	int size;
-	T *cVector;
+	using size_type=typename std::vector<T>::size_type;
+	std::vector<T> myvector;
 public:
-	dynArray(int s)
-		:size{s}
-		,cVector{new T[size]}
+	dynArray()
+		:myvector{}
+	{}
+
+	dynArray(std::initializer_list<T> ilist)
+		:myvector{ilist}
+	{}
+
+	T operator[](int index)
 	{
-	}
-	void setVector ( int elem, T val)
-	{
-		cVector[elem] = val;
+		return myvector[index];
 	}
 
-	void getVector () {
-		 for ( int j = 0; j < size; j++ ) {
+	size_type size() const
+		{ return myvector.size(); }
+	bool empty() const
+		{ return myvector.empty(); }
 
-	<< " type: " << typeid(cVector[ j ]).name() << std::endl;
+	// calss array member function to set element of myarray
+	// with type T values
+	void setArray ( int elem, T val)
+	{
+		myvector[elem] = val;
+	}
+
+
+	// for loop to display all elements of an array
+	void getArray () {
+		 for ( int j = 0; j < myvector.size; j++ ) {
+	// typeid will retriev a type for each value
+	        std::cout //<< std::setw( 7 ) << j << std::setw( 13 ) << myarray[ j ]
+	<< " type: " << typeid(myvector[ j ]).name() << std::endl;
 		}
 		std::cout << "-----------------------------" << std::endl;
 	}
