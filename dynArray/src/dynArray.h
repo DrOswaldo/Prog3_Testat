@@ -39,13 +39,8 @@ public:
 			return myvector.at(index);
 		}
 	}
-	std::iterator begin()
-	{
-		return myvector.begin();
-	}
-	std::iterator end()
-	{
-		return myvector.end();
+	void clear(){
+		myvector.clear();
 	}
 	T front()
 	{
@@ -55,7 +50,12 @@ public:
 	{
 		return myvector.back();
 	}
-
+	void push_back(T item){
+		myvector.push_back(item);
+	}
+	void pop_back(){
+		myvector.pop_back();
+	}
 	size_type size() const
 		{ return myvector.size(); }
 	bool empty() const
