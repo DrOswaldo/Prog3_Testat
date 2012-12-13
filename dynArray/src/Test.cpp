@@ -4,6 +4,8 @@
 
 #include "dynArray.h"
 
+#include <stdexcept>
+
 template<typename T>
 dynArray<T> makedynArray(std::initializer_list<T> ilist)
 {
@@ -11,13 +13,12 @@ dynArray<T> makedynArray(std::initializer_list<T> ilist)
 }
 
 void constructorTest() {
-
 	auto dCharArray = makedynArray<char>({});
 
 	ASSERT_EQUAL(dCharArray.size(), 0);
 
 	dynArray<int> dIntArray{1,2,3,4};
-	ASSERT_EQUAL(dCharArray.size(), 4);
+	ASSERT_EQUAL(dIntArray.size(), 4);
 
 	ASSERT_EQUAL(dIntArray[0], 1);
 	ASSERT_EQUAL(dIntArray[1], 2);
@@ -42,14 +43,16 @@ void negativeIndexTest() {
 }
 
 void invalidIndexTest() {
+
 	std::string str{"test"};
 	dynArray<std::string> sArr(5, str);
+	ASSERT_THROWS(sArr[6], std::out_of_range );
 
+	ASSERT_THROWS(sArr[-6], std::out_of_range );
 }
 
 void iteratorTest() {
 	dynArray<double> doubleArray{1.0,2.0,3.0,4.0};
-
 
 	int i=0;
 	for(auto it = doubleArray.begin(); it != doubleArray.end(); ++it) {
@@ -60,8 +63,12 @@ void iteratorTest() {
 void clearTest() {
 	auto cArr = makedynArray<char>({'a', 'b'});
 	ASSERT_EQUAL(2, cArr.size());
-	//cArr.clear();
+	cArr.clear();
 	ASSERT_EQUAL(0, cArr.size());
+}
+
+void pushPopTest() {
+	auto arr = makedynArray<float>({});
 }
 
 void runSuite(){
